@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> ::: Web Caesar ::: </title>
+        <title> Assignment: Web Caesar :: Unit 2: Web Fundamentals </title>
         <style>
             form {
                 background-color: #eee;
@@ -18,15 +18,32 @@
                 height: 120px;
             }
             p {
-                color: #909090
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-weight: bold;
+                font-size: x-large;
+                color: #909090;
+                text-align: center
+            }
+
+            p.footnote {
+                font-family: Palatino;
+                font-style: italic;
+                font-size: small;
+                color: #909090;
+                text-align: right;
+                width: 540px;
+                margin: 0 auto;
+                padding: 10px 40px;
+            
+                
             }
         </style>
     </head>
     <body>
-
-        <form action='/encrypt' method='post' >
+        <p> Welcome to Web Caesar! </p>
+        <form action='/' method='post' >
             <label for='rotation-value'> Rotate by:
-                <input type='text' id='rotation-value' name='rot' value='0' />
+                <input type='text' id='rotation-value' name='rot' value = '{{ rotation }}' />
             </label>
             <br>
             <textarea name='text'>{{ bigbox }}</textarea>
@@ -34,4 +51,7 @@
         </form>    
 
     </body>
+    <footer>
+        <p class = 'footnote'> Maryam Biazaran - May 2019</p>
+    </footer>
 </html>
