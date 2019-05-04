@@ -8,10 +8,18 @@ encrypted_text =''
 
 @app.route('/', methods = ['POST'])
 def encrypt():
+    error = ''
     text_to_rotate = request.form['text']
     rotation = request.form['rot']
-    encrypted_text = rotate_string(text_to_rotate,int(rotation))
-    return render_template('form.html',bigbox = encrypted_text,rotation = rotation)
+    try:
+        rotation = int(rotation)
+        encrypted_text = rotate_string(text_to_rotate,rotation)
+        return render_template('form.html',bigbox = encrypted_text,rotation = rotation)
+
+    except ValueError:
+        error = 'Please enter an integer'
+        return render_template('form.html',bigbox=text_to_rotate,rotaion = '0',error=error)
+        
     
 
 @app.route("/")
